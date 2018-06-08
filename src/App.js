@@ -1,19 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
+import './css/Card.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+
+import Dark from './components/Dark'
+import Light from './components/Light'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <Route render={({ location }) => (
+          <div className="App">
+            <TransitionGroup>
+              <CSSTransition key={location.key}
+                classNames="card-transition"
+                timeout={2500}>
+                <Switch location={location}>
+                  <Route exact path="/" component={Dark} />
+                  <Route path="/light" component={Light} />
+                </Switch>
+              </CSSTransition>
+            </TransitionGroup>
+          </div>
+        )}/>
+      </Router>
     );
   }
 }

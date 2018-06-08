@@ -1,0 +1,90 @@
+.card{
+  height: 50vh;
+  width: 50vw;
+  box-shadow: 0px 3px 24px 2px rgba(0,0,0,0.75);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  background: #000;
+  overflow: hidden;
+}
+
+.card.dark{
+  background: #000;
+}
+
+.card.light{
+  background: #c1c1c3;
+}
+
+.card-transition-exit, .card-transition-enter{
+  perspective: 1000px;
+  display: flex;
+}
+
+.card-transition-enter-active .card{
+  animation: cardenter 2500ms ease-in-out;
+}
+
+.card-transition-exit-active .card{
+  animation: cardexit 2500ms ease-in-out;
+}
+
+.bounce-image{
+  height: 25vh;
+  animation: bounce 3s infinite ease-in-out;
+}
+
+@keyframes cardenter {
+  0% {
+    height: 0;
+    transform: rotateY(89.9deg) scaleX(-1);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+  }
+  50% {
+    height: 0;
+    transform: rotateY(89.9deg) scaleX(-1);
+  }
+  75%{
+    height: 50vh;
+    transform: rotateY(89.9deg) scaleX(-1);
+  }
+  100% {
+    height: 50vh;
+    transform: rotateY(180deg) scaleX(-1);
+    box-shadow: 0px 3px 24px 2px rgba(0,0,0,0.75);
+  }
+}
+
+@keyframes cardexit {
+  0% {
+    height: 50vh;
+    transform: rotateY(0deg);
+    box-shadow: 0px 3px 24px 2px rgba(0,0,0,0.75);
+  }
+  25% {
+    height: 50vh;
+    transform: rotateY(89.9deg);
+  }
+  50% {
+    height: 0;
+    transform: rotateY(89.9deg);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+  }
+  100% {
+    height: 0;
+    transform: rotateY(89.9deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
