@@ -10,7 +10,7 @@ import Light from './components/Light'
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename={'zero-transition'}>
         <Route render={({ location }) => (
           <div className="App">
             <TransitionGroup>

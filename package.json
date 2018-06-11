@@ -1,6 +1,7 @@
 {
   "name": "zero-transition",
   "version": "0.1.0",
+  "homepage": "/zero-transition/",
   "private": true,
   "dependencies": {
     "react": "^16.4.0",
